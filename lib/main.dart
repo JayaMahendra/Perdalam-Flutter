@@ -1,52 +1,63 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
-
-//INI APLIKASI UNTUK MENCOBA ANIMASI APABILA DI CLICK,
-//MAKA YANG AKAN BERUBAH :
-//UKURAN 
-//WARNA
-
-
-//GESTURE DETECTOR DIGUANAKAN APABILA TIDAK ADA ONTAP/DLL
-
-
+//INI APLIKASI UNTUK MENCOBA FLEXIBLE
+//MAKSUTNYA ADALAH KARENA UKURAN SETIAP HP BEDA,
+//TIDAK SAMA SEPERTI SAAT NGODING(EMULATOR)
+//KALAU TIDAK PERCAYA SAAT RUN SILAHKAN DI ROTATE HPNYA
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({Key key}) : super(key: key);
-
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  Random random = Random();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Animated Container"),
+          title: Text('Layar Flexibel'),
         ),
-        body: Center(
-          child: GestureDetector(
-            onTap: () {
-              setState(() {});
-            },
-            child: AnimatedContainer(
-              duration: Duration(seconds: 1),
-              width: 50.0 + random.nextInt(101),
-              height: 50.0 + random.nextInt(101),
-              color: Color.fromARGB(255, random.nextInt(256),
-                  random.nextInt(256), random.nextInt(256)),
+        body: Column(
+          children: <Widget>[
+            Flexible(
+              child: Row(
+                children: [
+                  Flexible(
+                      flex: 1,
+                      child: Container(
+                        margin: EdgeInsets.all(5),
+                        color: Colors.pink,
+                      )),
+                  Flexible(
+                      flex: 1,
+                      child: Container(
+                        margin: EdgeInsets.all(5),
+                        color: Colors.blue,
+                      )),
+                  Flexible(
+                      flex: 1,
+                      child: Container(
+                        margin: EdgeInsets.all(5),
+                        color: Colors.green,
+                      )),
+                ],
+              ),
             ),
-          ),
+            Flexible(
+                flex: 2,
+                child: Container(
+                  margin: EdgeInsets.all(5),
+                  color: Colors.grey,
+                )),
+            Flexible(
+                flex: 1,
+                child: Container(
+                  margin: EdgeInsets.all(5),
+                  color: Colors.brown,
+                )),
+          ],
         ),
       ),
     );
