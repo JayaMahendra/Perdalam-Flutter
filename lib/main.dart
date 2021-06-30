@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 
-//INI APLIKASI UNTUK MENCOBA FLEXIBLE
-//MAKSUTNYA ADALAH KARENA UKURAN SETIAP HP BEDA,
-//TIDAK SAMA SEPERTI SAAT NGODING(EMULATOR)
-//KALAU TIDAK PERCAYA SAAT RUN SILAHKAN DI ROTATE HPNYA
+//12 STACK DAN ALIGN
+
+// STACK
+// kalo di photoshop digunakan untuk layer 
+// layer 1 = background 
+// layer 2 = text anggota kelas 
+// layer 3 = button 
+
+//ALIGN
+//biasalah ky kuliah
 
 void main() {
   runApp(MyApp());
@@ -16,50 +22,61 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Layar Flexibel'),
-        ),
-        body: Column(
-          children: <Widget>[
-            Flexible(
-              child: Row(
-                children: [
-                  Flexible(
-                      flex: 1,
-                      child: Container(
-                        margin: EdgeInsets.all(5),
-                        color: Colors.pink,
-                      )),
-                  Flexible(
-                      flex: 1,
-                      child: Container(
-                        margin: EdgeInsets.all(5),
-                        color: Colors.blue,
-                      )),
-                  Flexible(
-                      flex: 1,
-                      child: Container(
-                        margin: EdgeInsets.all(5),
-                        color: Colors.green,
-                      )),
-                ],
-              ),
+          appBar: AppBar(
+            title: Text('Latihan Stack'),
+          ),
+          body: Stack(children: <Widget>[
+            Container(
+              color: Colors.blueGrey,
             ),
-            Flexible(
-                flex: 2,
-                child: Container(
-                  margin: EdgeInsets.all(5),
-                  color: Colors.grey,
-                )),
-            Flexible(
-                flex: 1,
-                child: Container(
-                  margin: EdgeInsets.all(5),
-                  color: Colors.brown,
-                )),
-          ],
-        ),
-      ),
+            Padding(
+              padding: EdgeInsets.all(19),
+              child: ListView(children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Column(
+                      children: [
+                        Text(
+                          "CURHAT DONG NGAB",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                          ),
+                        ),
+                        Text(
+                          "MI2C",
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 50, bottom: 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        " Ajeng Eka Y \n Ardhanika MRH \n Ayu Ariesta \n Brian Andri \n Destiara \n Dewi Okta \n Dika Ayu \n Dinda Jinggan \n Dyah Ayu \n \n Elsa Aprilia \n Erni Sri \n Falya Charismtul \n Ferika Asmara \n \n --JAYA MAHENDRA-- \n \n Lilik Nurwati \n Abdush Shidqi \n Luthfi R \n Masykur W \n NIo Dyah \n Osy Krisdayanti \n\n Rasyida K \n Syalwa N \n Tia W \n Yayang Nirmala N S \n Yuni R \n Zamrony",
+                        style: TextStyle(fontSize: 19, color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
+              ]),
+            ),
+            Align(
+
+              // custom
+              // x = vertikal y = horizontal 
+              // dimulai dari -1 0 1 . coba ae ngab custom sendiri
+              alignment: Alignment(0, 0.9),
+              // alignment: Alignment.bottomCenter,
+                child:
+                    RaisedButton(onPressed: () {}, child: Text("My Button"))),
+          ])),
     );
   }
 }
